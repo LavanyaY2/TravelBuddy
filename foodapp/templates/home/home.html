@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <link href="{% static 'home/home.css' %}"  rel="stylesheet">
+        <title>Homepage</title>
+      
+    </head>
+
+    <body>
+    <div class = "text"> 
+        <div class="topnav">
+            <a class="nav" href="{% url 'home' %}">Home</a>
+            <a class = "nav" href="{% url 'menu' %}">Menu</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+        </div>
+        
+
+        <h1>Welcome To Flavorful!</h1>
+        <div class="heading">
+            <h2>Helping Small Businesses come back! </h2>
+            <img class="image" src="https://gallery.yopriceville.com/var/albums/Free-Clipart-Pictures/Fast-Food-PNG-Clipart/Eggs_and_Bacon_PNG_Vector_Clipart.png?m=1434276761">
+            <h2>Why Support Local Businesses?</h2> 
+        </div>
+
+        <div class = "paragraph">       
+         <p>The COVID-19 pandemic ravaged the restaurant sector, with over 10,000 Canadian restaurants closing down for good. The remaining eateries have struggled too, with low customer turnout and capacity restrictions making it difficult for them to stay afloat. But, there is light at the end of the tunnel - with restrictions being lifted, customers are starting to look to dine out again. Thus, our mission is to connect these eager customers with local restaurants to help them get the traction they deserve!</p>
+        </div>
+    </div>
+    
+ 
+
+
+</html>

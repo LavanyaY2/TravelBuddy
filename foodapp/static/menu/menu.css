@@ -1,0 +1,152 @@
+h1{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:600;
+    font-size: 35px;
+    margin-left: 50px;
+    text-align: left;
+    padding: 20px 20px 0px 10px;
+}
+
+
+
+
+.topnav {
+    background-color: transparent;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:600;
+    float: right;
+    color: #174a0f;
+    text-align: end;
+    padding: 19px 16px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: rgb(46, 100, 54);
+    color: rgb(252, 252, 252);
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #0f6d1f96;
+    color: white;
+  }
+
+
+  
+body {
+    background-color: #edc15c;
+    margin:0;
+    padding: 0px;
+  }
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.column{
+    flex: 21.21%;
+    padding: 10px;
+}
+
+#image_container { 
+    float:center;
+    width:300px; 
+} 
+
+.image{
+    border-radius: 5px;
+}
+
+.result{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:600;
+    font-size: 20px;
+
+}
+
+#text_container{
+    padding:10px;
+    width:220px;
+}
+
+.text{
+
+    width: 100%;
+    height: 100vh;  
+    position: relative;
+    background: url(https://blogapi.uber.com/wp-content/uploads/2020/10/supportRestaurants@3x-1024x350.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.test{
+    display: grid;
+    grid-template-columns: min-content 1fr;
+}
+
+.form{
+    text-align:center;
+    align-items:left;
+    justify-content:left;   
+}
+
+
+.main-form{
+    margin:20px;
+    margin-bottom:30px;
+    padding:10px;
+    width:300px;
+    height:15px; 
+    border: 0.2px rgb(7, 7, 7) solid;
+    border-radius:10px;
+}
+
+
+
+.submit-button{
+    background-color: rgb(167, 12, 12);
+    color:white;
+    border-color:transparent;
+    width:250px;
+    height:40px;
+    margin-top:20px;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.test{
+    display: grid;
+    padding: 10rem;
+    grid-template-columns: 500px 1fr;
+    gap: 1rem;
+    align-items: left;
+    max-width: 800px;
+    margin: 0 auto;
+    
+}
+
+img.animated-gif{
+    width: 100%;
+    height: 100%;
+}
+
+#container{
+    margin-left: 50px;
+}
+
+.label{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:600;
+    font-size: 25px;
+}
