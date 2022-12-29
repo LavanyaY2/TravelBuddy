@@ -1,37 +1,91 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
-        <link href="{% static 'home/home.css' %}"  rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="{% static 'home/home.css' %}?{% now 'U' %}"  rel="stylesheet">
         <title>Homepage</title>
-      
     </head>
-
     <body>
-    <div class = "text"> 
-        <div class="topnav">
-            <a class="nav" href="{% url 'home' %}">Home</a>
-            <a class = "nav" href="{% url 'menu' %}">Menu</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
+        <div class="container-fluid">
+                <div class="header">
+                    <div class="col-md-6">
+                        <div class="logo">
+                            TravelBuddy
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="button-container">
+                            <div class="button">
+                                <i class="fa fa-plane"></i>
+                                Planned trips 
+                            </div>
+                            <!-- <div class="button">
+                                <i class="fa fa-user icon"></i>
+                                Sign in 
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
+        <div class="container-fluid carousel">
+            <div class="set">
+                <div class=" image1">
+                    <div class="title">
+                        <div class="title-content">
+                            <div class="title-container">
+                                <div class="second-title">
+                                    Simplify traveling with a guidebook personalized for your experiences. 
+                                </div>
+                            </div>
+                            <div class="test">
+                                <div class="button-body-container">
+                                    <div class="button-body">
+                                        Hotels
+                                        <i class="fa fa-bed icon" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="button-body">
+                                        <a href="{% url 'menu' %}">Restaurants</a>
+                                        <i class="fa fa-cutlery icon" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="button-body">
+                                        Places to visit
+                                        <i class="fa fa-ticket icon" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <form action="" method="get" class="form-group has-search">
+                                    <span class="fa fa-search form-control-feedback"></span>
+                                    <input type="text" id="input" class="input-field" placeholder="Explore Destinations..." name="destination">
+                                </form>
+                            </div>
+                        </div>    
+                    </div>
 
-        <h1>Welcome To Flavorful!</h1>
-        <div class="heading">
-            <h2>Helping Small Businesses come back! </h2>
-            <img class="image" src="https://gallery.yopriceville.com/var/albums/Free-Clipart-Pictures/Fast-Food-PNG-Clipart/Eggs_and_Bacon_PNG_Vector_Clipart.png?m=1434276761">
-            <h2>Why Support Local Businesses?</h2> 
+                    <div id="jump" class="row">
+                        {% for i in events %}
+                        <div id="image_container" class="column">
+                            <div class="card-deck">
+                                <div class="card" style="width: 18rem;">
+                                    <a href="{{ i.event_site_url }}">
+                                        <img class="card-img-top" src="{{ i.image_url }}" alt="Thumbnail Unavailable" height="200px" width="200px" >
+                                    </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ i.name }}</h5>
+                                        <p class="card-text" id="text_container">
+                                            {{ i.description }}
+                                        </p>
+                                      <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class = "paragraph">       
-         <p>The COVID-19 pandemic ravaged the restaurant sector, with over 10,000 Canadian restaurants closing down for good. The remaining eateries have struggled too, with low customer turnout and capacity restrictions making it difficult for them to stay afloat. But, there is light at the end of the tunnel - with restrictions being lifted, customers are starting to look to dine out again. Thus, our mission is to connect these eager customers with local restaurants to help them get the traction they deserve!</p>
-        </div>
-    </div>
-    
- 
-
-
+    </body>
 </html>
