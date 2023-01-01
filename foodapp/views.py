@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import requests
+from .forms import NewUserForm
+from django.contrib.auth import login
+from django.contrib import messages
+
 
 # Create your views here.
 API_KEY = 'CZ2cLAcAqcaM-KBIujkN-jW0GO5euZRvYkXJCZ9iocyfT4JaDSCl_jD5h7KZymcx5aFjh3Xu_NzJFZj12QfG9M_Dg_xlBMaOIN0XhcXuUFORLJC8g0pt9MZvT8xRYnYx'
@@ -38,3 +42,15 @@ def menu(request):
         'businesses': businesses
     }
     return render(request, 'menu/menu.html', context)
+
+def register(request):
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Successful")
+            return redirect("home/home.html")
+        messages.error(request, "invalid")
+    form = NewUserForm()
+    return render(request, 'register/register.html', context = {"register":form})
