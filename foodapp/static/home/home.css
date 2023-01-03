@@ -18,6 +18,25 @@ i{
   opacity: .8;
 }
 
+.greeting{
+  margin: 10px;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 60px;
+  color: #0b1148;
+}
+
+.sub-section{
+  margin: 0px 10px 10px 10px;
+  padding: 10px 10px 10px 20px;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 30px;
+  color: #0b1148;
+  border: 2px solid #0b114821;
+  border-radius: 15px;
+}
+
 .button-container{
   display: flex;
   flex-wrap: wrap;
@@ -97,7 +116,7 @@ i{
   align-items: center;
   padding: 10px;
   height: 3em;
-  width: 300px;
+  width: 400px;
   text-align: left;
   background-color: #ffffff;
   color: #0b1148;
@@ -132,6 +151,16 @@ i{
 .title-container{
   background-color: #ffffff;
   opacity: 0.8;
+  width: 74%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4em;
+  border-radius: 10px;
+  margin: 35px;
+}
+
+.user-greeting{
   width: 74%;
   display: flex;
   justify-content: center;

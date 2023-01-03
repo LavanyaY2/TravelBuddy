@@ -67,7 +67,7 @@ a:hover{
 }
 
 .title{
-    background-image: url('image-2-restaurants.jpg');
+    background-image: url('image-1-hotels.jpg');
     border-radius: 20px;
     height: 400px;
     width: 100%;
@@ -170,7 +170,7 @@ a:hover{
 
 .input-field{
     border-radius: 20px;
-    width: 30vw;
+    width: 50vw;
     padding: 10px 10px 10px 30px;
     text-align: center;
     border: 1px solid #000000;
@@ -212,9 +212,9 @@ img{
 }
 
 @keyframes autoplay {
-    0% {background-image: url('image-2-restaurants.jpg');}
-    50% {background-image: url('image-1-restaurants.jpg');}
-    100% {background-image: url('image-3-restaurants.jpg');}
+    0% {background-image: url('image-1-hotels.jpg');}
+    50% {background-image: url('image-2-hotels.jpg');}
+    100% {background-image: url('image-3-hotels.png');}
 }
   
 row{

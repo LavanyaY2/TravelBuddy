@@ -1,0 +1,133 @@
+body{
+    background-image: url('image-1-register.jpg');
+    background-repeat: no-repeat;
+    background-attachment: cover;  
+    background-size: cover;
+}
+
+i{
+    margin-right: 12px;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.header{
+    height: 5em;
+    display:flex;
+    align-items: center;
+    background-color: white;
+}
+
+.container-fluid{
+    background-color: #ffffff !important;
+}
+
+.logo{
+    margin: 10px;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 30px;
+    color: #0b1148;
+    opacity: .8;
+}
+
+.button-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    margin: 10px;
+}
+
+.button{
+    margin: 2px;
+    inline-size: min-content;
+    white-space: nowrap;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: 2em;
+    color: #0b1148;
+    font-size: 19px;
+    font-weight: 450;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color:  #0b1148;
+    color: #ffffff;
+    border: 1px solid #0b1148;
+    border-radius: 10px;
+}
+
+.button a{
+    text-decoration: none;
+    color: #0b1148;
+}
+
+.button:hover a{
+    color: #ffffff;
+}
+
+h4{
+    margin-bottom: 20px;
+}
+
+.card{
+    background-color:#ffffff!important;
+    margin: 10px 200px 10px 10px;
+    padding: 30px;
+    border: 2px solid #0b1148;
+    min-height: 480px;
+    min-width: 450px;
+    display:flex;
+    justify-content: center;
+}
+
+.title{
+    height: 90%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: cover;  
+    background-size: cover;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.button-body{
+    margin: 5px;
+    white-space: nowrap;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    height: 2.6em;
+    width: 109px;
+    text-align: left;
+    color: #ffffff;
+    background-color: #0b1148;
+    border: 2px solid #0b1148;
+    border-radius: 18px;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.button-body:hover{
+    color:  #0b1148;
+    background-color: #ffffff;
+    border: 2px solid #0b1148;
+    border-radius: 20px;
+}

@@ -16,26 +16,45 @@
                             TravelBuddy
                         </div>
                     </div>
+                    {% if user.is_authenticated %}
                     <div class="col-md-6">
                         <div class="button-container">
                             <div class="button">
                                 <i class="fa fa-plane"></i>
                                 Planned trips 
                             </div>
-                            <!-- <div class="button">
+                            <div class="button">
                                 <i class="fa fa-user icon"></i>
-                                Sign in 
-                            </div> -->
+                                <a href="/logout"> Log out </a>
+                            </div>
                         </div>
                     </div>
+                    {% else %}
+                    <div class="col-md-6">
+                        <div class="button-container">
+                            <div class="button">
+                                <i class="fa fa-user icon"></i>
+                                <a href="{% url 'login' %}"> Sign in </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
         <div class="container-fluid carousel">
+            
             <div class="set">
                 <div class=" image1">
                     <div class="title">
                         <div class="title-content">
+                            {% if user.is_authenticated %}
+                            <div class="user-greeting">
+                                <div class="greeting">
+                                    Welcome Back {{ user.username }}!
+                                </div>
+                            </div>
+                            {% endif %}
                             <div class="title-container">
                                 <div class="second-title">
                                     Simplify traveling with a guidebook personalized for your experiences. 
@@ -44,17 +63,17 @@
                             <div class="test">
                                 <div class="button-body-container">
                                     <div class="button-body">
-                                        Hotels
+                                        <a href="{% url 'hotels' %}">Hotels</a>
                                         <i class="fa fa-bed icon" aria-hidden="true"></i>
                                     </div>
                                     <div class="button-body">
                                         <a href="{% url 'menu' %}">Restaurants</a>
                                         <i class="fa fa-cutlery icon" aria-hidden="true"></i>
                                     </div>
-                                    <div class="button-body">
+                                    <!-- <div class="button-body">
                                         Places to visit
                                         <i class="fa fa-ticket icon" aria-hidden="true"></i>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <form action="" method="get" class="form-group has-search">
                                     <span class="fa fa-search form-control-feedback"></span>
@@ -64,11 +83,18 @@
                         </div>    
                     </div>
 
+                    <div>
+                        {% if events %}
+                        <div class="sub-section">
+                            <h4>Popular events currently happening at this destination</h4>
+                        </div>
+                        {% endif %}
+                    </div>
+
                     <div id="jump" class="row">
                         {% for i in events %}
                         <div id="image_container" class="column">
-                            <div class="card-deck">
-                                <div class="card" style="width: 18rem;">
+                                <div class="card" style="height: 25rem">
                                     <a href="{{ i.event_site_url }}">
                                         <img class="card-img-top" src="{{ i.image_url }}" alt="Thumbnail Unavailable" height="200px" width="200px" >
                                     </a>
@@ -77,10 +103,8 @@
                                         <p class="card-text" id="text_container">
                                             {{ i.description }}
                                         </p>
-                                      <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
                                     </div>
                                 </div>
-                            </div>
                         </div>
                     {% endfor %}
                     </div>
