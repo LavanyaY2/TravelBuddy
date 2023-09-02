@@ -1,10 +1,11 @@
 from django import forms
+from django.forms import ModelForm
+from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 class NewUserForm(UserCreationForm):
     email = forms.EmailField(required = True)
-
     class Meta:
         model = User
         fields = ("username", "email", "password1", "password2")
@@ -15,3 +16,14 @@ class NewUserForm(UserCreationForm):
         if commit:
             user.save()
         return user
+    
+class HotelForm(forms.ModelForm):
+    class Meta:
+        model = Hotel
+        fields = ("hotel_name",)
+
+class RestaurantForm(forms.ModelForm):
+    class Meta:
+        model = Restaurant
+        fields = ("restaurant_name",)
+

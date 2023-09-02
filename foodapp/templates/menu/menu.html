@@ -23,11 +23,12 @@
                     <div class="col-md-6">
                         <div class="button-container">
                             <div class="button">
+                                <i class="fa fa-bed icon" aria-hidden="true"></i>
                                 <a href="{% url 'hotels' %}"> Search Hotels </a>
                             </div>
                             <div class="button">
                                 <i class="fa fa-plane"></i>
-                                Planned trips 
+                                <a href="{% url 'favorites' %}">Planned trips </a>
                             </div>
                             <div class="button">
                                 <i class="fa fa-user icon"></i>
@@ -94,6 +95,11 @@
                                             {{ i.location.city }}, {{ i.location.zip_code }} <br>
                                             <strong>Contact:</strong> {{ i.display_phone }}
                                         </p>
+                                        <form method="POST" action="menu">
+                                            {% csrf_token %}
+                                            {{ form }}
+                                            <input type="submit" name="Mark as Favorite">
+                                        </form>
                                     </div>
                             </div>
                         </div>

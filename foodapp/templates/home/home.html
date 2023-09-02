@@ -21,7 +21,7 @@
                         <div class="button-container">
                             <div class="button">
                                 <i class="fa fa-plane"></i>
-                                Planned trips 
+                                <a href="{% url 'favorites' %}">Planned trips </a> 
                             </div>
                             <div class="button">
                                 <i class="fa fa-user icon"></i>
@@ -83,12 +83,18 @@
                         </div>    
                     </div>
 
-                    <div>
+                    <div class="sub-section-style">
+                        <div class="sub-section favorite">
+                            <button class="button_fav">
+                                Mark this destination as a favorite! 
+                            </button>
+                        </div>
                         {% if events %}
                         <div class="sub-section">
                             <h4>Popular events currently happening at this destination</h4>
                         </div>
                         {% endif %}
+                    
                     </div>
 
                     <div id="jump" class="row">

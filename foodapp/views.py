@@ -4,10 +4,16 @@ from .forms import NewUserForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+from .models import *
+from .forms import *
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 # Create your views here.
-API_KEY = 'CZ2cLAcAqcaM-KBIujkN-jW0GO5euZRvYkXJCZ9iocyfT4JaDSCl_jD5h7KZymcx5aFjh3Xu_NzJFZj12QfG9M_Dg_xlBMaOIN0XhcXuUFORLJC8g0pt9MZvT8xRYnYx'
+API_KEY = os.getenv('API_KEY')
 ENDPOINT_RESTAURANTS = 'https://api.yelp.com/v3/businesses/search'
 ENDPOINT_HOME = 'https://api.yelp.com/v3/events'
 HEADERS = {'Authorization': 'bearer %s' % API_KEY}
@@ -20,6 +26,7 @@ def home(request):
         response = requests.get(url = ENDPOINT_HOME , params = {'sort_on': 'popularity', 'limit':50, 'location': destination, 'is_canceled': False}, headers= HEADERS)
         events_data = response.json()
         events = events_data['events']
+
     else:
         response = ''
     context = {
@@ -43,24 +50,62 @@ def menu(request):
         businesses = business_data['businesses']
     else: 
         response = ''
+
+    
+    form = RestaurantForm()
+
+    if request.method == "POST":
+        form = RestaurantForm(request.POST)
+        if form.is_valid():
+            #response.user.Hotel_set.create()
+            form.save()
+        return redirect('/')
+    
     context = {
-        'businesses': businesses
+        'businesses': businesses,
+        'form': form
     }
     return render(request, 'menu/menu.html', context)
 
 def hotels(request):
     businesses = ''
     city= request.GET.get('location')
+
     if city:
         response = requests.get(url = ENDPOINT_RESTAURANTS , params = {'term': 'hotels', 'limit': 50, 'radius':10000, 'location':city, 'offset': 50}, headers= HEADERS)
         business_data = response.json()
         businesses = business_data['businesses']
     else:
         response = ''
+
+    form = HotelForm()
+
+    print(request.user)
+
+    if request.method == "POST":
+        form = HotelForm(request.POST)
+        if form.is_valid():
+            #response.user.hotel_set.create()
+            hotel = form.save()
+            hotel.user.add(request.user)
+        return redirect('/')
+    
     context = {
-        'businesses': businesses
+        'businesses': businesses,
+        'form': form
     }
+
     return render(request, 'hotels/hotels.html', context)
+
+def favorites(request):
+    hotels = Hotel.objects.all()
+    restaurants = Restaurant.objects.all()
+
+    context = {
+        'hotels': hotels,
+        'restaurants': restaurants
+    }
+    return render(request, 'favorites/favorites.html', context)
 
 def register(request):
     if request.method == "POST":

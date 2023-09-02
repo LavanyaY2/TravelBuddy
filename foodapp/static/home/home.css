@@ -27,7 +27,7 @@ i{
 }
 
 .sub-section{
-  margin: 0px 10px 10px 10px;
+  margin: 20px 10px 10px 10px;
   padding: 10px 10px 10px 20px;
   font-weight: 600;
   font-size: 28px;
@@ -35,6 +35,37 @@ i{
   color: #0b1148;
   border: 2px solid #0b114821;
   border-radius: 15px;
+}
+
+.button_fav{
+  border: none;
+  background-color: transparent;
+
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 30px;
+  background-color: #0b1148;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.favorite{
+  background-color: #0b1148;
+}
+
+.button_fav:hover{
+  background-color:  #0b1148;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+.button_fav a{
+  text-decoration: none;
+  color: #0b1148;
+}
+
+.button_fav:hover a{
+  color: #ffffff;
 }
 
 .button-container{

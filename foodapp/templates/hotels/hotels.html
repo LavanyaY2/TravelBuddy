@@ -23,11 +23,12 @@
                     <div class="col-md-6">
                         <div class="button-container">
                             <div class="button">
+                                <i class="fa fa-cutlery icon" aria-hidden="true"></i>
                                 <a href="{% url 'menu' %}"> Search Restaurants </a>
                             </div>
                             <div class="button">
                                 <i class="fa fa-plane"></i>
-                                Planned trips 
+                                <a href="{% url 'favorites' %}">Planned trips </a>
                             </div>
                             <div class="button">
                                 <i class="fa fa-user icon"></i>
@@ -90,6 +91,16 @@
                                             {{ i.location.city }}, {{ i.location.zip_code }} <br>
                                             <strong>Contact:</strong> {{ i.display_phone }}
                                         </p>
+                                        <form method="POST" action="favorites">
+                                            {% load crispy_forms_tags %}     
+                                            {% csrf_token %}
+                                            {{ form|crispy }}
+                                            <div style="padding-left: 10px;">
+                                                <input class="btn btn-outline-primary" type="submit" name="Mark as Favorite" value="Save it!">
+                                            </div>
+                                            
+                                        </form>
+                                        
                                     </div>
                             </div>
                         </div>
